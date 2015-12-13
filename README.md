@@ -15,7 +15,10 @@
 - 3.1 Usar o comando `cat ~/.ssh/id_rsa.pub` para ler a chave ou alternativamente abrir o arquivo e copiar a chave manualmente.
 - 4  Em `Settings -> SSH Keys` addicionar a chave gerada anteriormente.
 - 5. No git bash e na pasta onde será a workspace do jogo,
-- 6. Clonar o repositório: `git clone git@github.com:johnnytn/ludumdare.git`
+- 6. Crie um fork do projeto principal `https://github.com/johnnytn/ludumdare`
+- 7. Clonar o seu fork `git clone git@github.com:XX/ludumdare.git`
+- 8. Adicionar o alias pro para o projeto principal `git remote add upstream git@github.com:johnnytn/ludumdare.git`
+
 
 A partir daqui o workspace estará configurado, agora é só começar!
 
