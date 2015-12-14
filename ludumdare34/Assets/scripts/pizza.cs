@@ -13,9 +13,11 @@ public class pizza : MonoBehaviour {
 	new private AudioSource audio;
 	public AudioSource fail;
 
+	private GameObject go;
 
 	// Use this for initialization
 	void Start () {
+		go = GameObject.FindGameObjectWithTag("vidas");
 		bandeja = GameObject.FindGameObjectWithTag("bandeja").transform;
 		audio = gameObject.GetComponent<AudioSource>();
 		fail = GameObject.FindGameObjectWithTag("somFail").GetComponent<AudioSource>();
@@ -29,25 +31,25 @@ public class pizza : MonoBehaviour {
 
 	
 	void OnCollisionEnter2D(Collision2D colisor){
-		
-		//Debug.Log ("COLIDIU " + colisor.gameObject.name);
-		if (colisor.gameObject.tag == "bandeja") {
-			naBandeja = true;
-			transform.parent = bandeja;
-			audio.Play ();
-		} else if (colisor.gameObject.tag == "pizza") {
-			if (colisor.transform.GetComponent<pizza>().naBandeja == true) {
+
+		if (!naBandeja) {
+			//Debug.Log ("COLIDIU " + colisor.gameObject.name);
+			if (colisor.gameObject.tag == "bandeja") {
 				naBandeja = true;
 				transform.parent = bandeja;
 				audio.Play ();
+			} else if (colisor.gameObject.tag == "pizza") {
+				if (colisor.transform.GetComponent<pizza> ().naBandeja == true) {
+					naBandeja = true;
+					transform.parent = bandeja;
+					audio.Play ();
+				}
+			} else {
+				Destroy (gameObject);
 			}
-		} else {
-			Destroy(gameObject);
 		}
-
-		GameObject go = GameObject.FindGameObjectWithTag("vidas");
-
-		vida = go.GetComponent<Vidas>();
+			
+		vida = go.GetComponent<Vidas> ();
 
 		if (colisor.gameObject.name == "chao") {
 			if (vida.ExcluirVida ()) {
@@ -57,8 +59,5 @@ public class pizza : MonoBehaviour {
 				SceneManager.LoadScene ("GameOver");
 			}
 		}
-		
-		
-		
 	}
 }
