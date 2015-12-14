@@ -21,10 +21,8 @@ public class bandeja : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colisor){
 
-		Debug.Log (colisor.gameObject.tag);
 
 		if (colisor.gameObject.tag == "triggerBau") {	 
-			Debug.Log ("colidiu na caçamba");
 			bandej.enabled = false;
 
 			List<Transform> unparent = new List<Transform>(transform.childCount);
@@ -44,10 +42,7 @@ public class bandeja : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D colisor){
 
-		Debug.Log ("SAIUUUUUUUUUU" + colisor.gameObject.tag);
-
 		if (colisor.gameObject.tag == "triggerBau") {	 
-			Debug.Log ("saiu da caçandaco");
 			bandej.enabled = true;
 		}
 

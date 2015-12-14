@@ -22,18 +22,17 @@ public class pizza : MonoBehaviour {
 		audio = gameObject.GetComponent<AudioSource>();
 		fail = GameObject.FindGameObjectWithTag("somFail").GetComponent<AudioSource>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 
-	
+
 	void OnCollisionEnter2D(Collision2D colisor){
 
 		if (!naBandeja) {
-			//Debug.Log ("COLIDIU " + colisor.gameObject.name);
 			if (colisor.gameObject.tag == "bandeja") {
 				naBandeja = true;
 				transform.parent = bandeja;
@@ -45,15 +44,15 @@ public class pizza : MonoBehaviour {
 					audio.Play ();
 				}
 			} else {
+				Debug.Log ("COLIDIU " + colisor.gameObject.name);
 				Destroy (gameObject);
 			}
 		}
-			
-		vida = go.GetComponent<Vidas> ();
 
 		if (colisor.gameObject.name == "chao") {
+			vida = go.GetComponent<Vidas> ();
 			if (vida.ExcluirVida ()) {
-				
+
 				fail.Play ();
 			} else {
 				SceneManager.LoadScene ("GameOver");

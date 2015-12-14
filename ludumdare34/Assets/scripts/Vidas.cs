@@ -31,7 +31,6 @@ public class Vidas : MonoBehaviour {
 
 		if (contador < (vidas - 1)) {
 
-			Debug.Log (contador);
 			contador += 1;
 			GetComponent<Image>().sprite = vidaAtual [contador];
 			return true;
