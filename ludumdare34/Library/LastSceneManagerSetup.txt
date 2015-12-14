@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/cenas/GameOver.unity
+- path: Assets/_cenas/Cena1.unity
   isLoaded: 1
   isActive: 1
