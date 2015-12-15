@@ -14,7 +14,7 @@ public class Score : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		txtPonto.text = "Pontos: " + ponto;
+		txtPonto.text = "Points: " + ponto;
 	}
 
 	// Update is called once per frame
@@ -25,7 +25,7 @@ public class Score : MonoBehaviour {
 	public void SomarPonto(int _ponto){
 
 		ponto += _ponto;
-		txtPonto.text = "Pontos: " + ponto;
+		txtPonto.text = "Points: " + ponto;
 
 	}
 
@@ -33,7 +33,7 @@ public class Score : MonoBehaviour {
 	public void TirarPonto(int _ponto){
 
 		ponto -= _ponto;
-		txtPonto.text = "Pontos: " + ponto;
+		txtPonto.text = "Points: " + ponto;
 
 	}
 
@@ -43,6 +43,10 @@ public class Score : MonoBehaviour {
 			PlayerPrefs.SetInt("recorde",ponto);
 		}
 
+	}
+
+	public void Pontuacao(){
+		PlayerPrefs.SetInt ("pontuacao", ponto);
 	}
 
 

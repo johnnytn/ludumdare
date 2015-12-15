@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class pizza : MonoBehaviour {
 
@@ -55,7 +54,7 @@ public class pizza : MonoBehaviour {
 
 				fail.Play ();
 			} else {
-				SceneManager.LoadScene ("GameOver");
+				Application.LoadLevel("GameOver");
 			}
 		}
 	}

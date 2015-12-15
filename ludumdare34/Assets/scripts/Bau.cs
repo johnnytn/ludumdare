@@ -40,7 +40,8 @@ public class Bau : MonoBehaviour {
 				multiplicationRatio++;
 
 			score.SomarPonto (multiplicationRatio * pontos);
-				
+			score.Recorde ();
+			score.Pontuacao ();
 
 			timeSinceLastCollision = Time.timeSinceLevelLoad;
 			cheio = true;

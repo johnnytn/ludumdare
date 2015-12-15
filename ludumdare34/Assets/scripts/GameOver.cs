@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour {
 
@@ -9,10 +8,14 @@ public class GameOver : MonoBehaviour {
 	public Texture2D titulo;
 	public Texture2D btnVoltar;
 
+	public UnityEngine.UI.Text pontos;
+	public UnityEngine.UI.Text recorde;
+
 
 	// Use this for initialization
 	void Start () {
-		
+		pontos.text = PlayerPrefs.GetInt("pontuacao").ToString();
+		recorde.text = PlayerPrefs.GetInt("recorde").ToString();
 	}
 
 
@@ -25,7 +28,7 @@ public class GameOver : MonoBehaviour {
 
 
 		if (play) {
-			SceneManager.LoadScene (1);
+			Application.LoadLevel (1);
 			Score.Inicializar();
 		}
 

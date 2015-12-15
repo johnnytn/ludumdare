@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
@@ -27,7 +26,7 @@ public class Menu : MonoBehaviour {
 
 
 		if (play) {
-			SceneManager.LoadScene (1);
+			Application.LoadLevel (1);
 			Score.Inicializar();
 		}
 
