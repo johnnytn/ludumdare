@@ -13,11 +13,10 @@ public class Instanciador : MonoBehaviour {
 	
 	private float timeMovimento = 0f;
 	private int valorMininoRandom = 0;
-	// Use this for initialization
+	
+    // Use this for initialization
 	void Start () {
-		
 		InvokeRepeating ("Spawn",instanciadorTempo,instanciadorDelay);
-		
 	}
 	
 	// Update is called once per frame
@@ -26,13 +25,11 @@ public class Instanciador : MonoBehaviour {
 	}
 	
 	void Spawn(){
-		
 		int index = Random.Range (valorMininoRandom,objetos.Length);
 		Instantiate (objetos [index], transform.position, objetos [index].transform.rotation);
 	}
 	
 	void Movimentar(){
-		
 		timeMovimento += Time.deltaTime;
 		
 		if (timeMovimento <= mxDelay) {
@@ -49,6 +46,5 @@ public class Instanciador : MonoBehaviour {
 			isEsquerda = !isEsquerda;
 			timeMovimento = 0;
 		}
-		
 	}
 }
