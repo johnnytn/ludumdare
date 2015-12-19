@@ -50,7 +50,32 @@ public class PlayerController : MonoBehaviour {
                 lastMovementTime = Time.timeSinceLevelLoad;
             }
         }
+        //StartCoroutine(trocarAleatorioSprite());
+        trocarSprite();
+    }
 
+
+    /// teste de random sprite 
+    IEnumerator trocarAleatorioSprite() {
+        Debug.Log("Before Waiting 2 seconds");
+        int atualSprite = 0;
+        int proximaSprite = 0;
+        if (input != 0) {
+            proximaSprite = Random.Range(0, 2);
+            if (proximaSprite == atualSprite) {
+                proximaSprite = atualSprite == 2 ? atualSprite-- : atualSprite++;
+            } 
+
+            pls.sprite = players[proximaSprite];
+            atualSprite = proximaSprite;
+        }
+
+        yield return new WaitForSeconds(2f);
+        Debug.Log("After Waiting 2 Seconds");
+    }
+
+
+    private void trocarSprite() {
         if (transform.position.x == 4) {
             pls.sprite = players[2];
         } else if (transform.position.x == -4) {
@@ -69,10 +94,6 @@ public class PlayerController : MonoBehaviour {
         } else if (transform.position.x == -0) {
             pls.sprite = players[0];
         }
-
-
     }
-
-
 
 }

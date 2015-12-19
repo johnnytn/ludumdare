@@ -24,7 +24,10 @@ public class Pizza : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        // TODO : testar para ver se resolveu o bug das pizzas que ficam grudadas no fundo
+        if (this.transform.position.y <= -5) {
+            alterarEstadoPiza(false);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D colisor) {
@@ -55,6 +58,5 @@ public class Pizza : MonoBehaviour {
         if (naBandeja) {
             audio.Play();
         }
-
     }
 }
