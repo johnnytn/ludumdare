@@ -19,10 +19,10 @@ public class Menu : MonoBehaviour {
 
 	void OnGUI() {
 		GUI.skin = skinMenu;
-		GUI.DrawTexture(new Rect (Screen.width/2 - titulo.width/2, Screen.height/2 - titulo.height/2,titulo.width,titulo.height),titulo);
+		///GUI.DrawTexture(new Rect (Screen.width/2 - titulo.width/2, Screen.height/2 - titulo.height/2,titulo.width,titulo.height),titulo);
 
-		bool play = GUI.Button (new Rect (Screen.width - 164, Screen.height-100,64,64),btnMenuPlay);
-		bool sair = GUI.Button (new Rect (Screen.width - 100, Screen.height-100,64,64),btnVoltar);
+		bool play = GUI.Button (new Rect (Screen.width - 950, Screen.height-100,178,80),btnMenuPlay);
+		bool sair = GUI.Button (new Rect (Screen.width - 250, Screen.height-100,178,80),btnVoltar);
 
 
 		if (play) {
