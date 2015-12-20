@@ -24,6 +24,11 @@ public class pizza : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (gameObject.transform.position.y < bandeja.transform.position.y) {
+			Debug.Log ("passei a bandeja");
+			naBandeja = false;
+			transform.parent = null;
+		}
 
 	}
 
