@@ -13,7 +13,7 @@
 - 2. Baixar o Git Bash `https://git-scm.com/downloads` 
 - 3. No git bash, usar o comando `ssh-keygen` para gerar a chave.
 - 3.1 Usar o comando `cat ~/.ssh/id_rsa.pub` para ler a chave ou alternativamente abrir o arquivo e copiar a chave manualmente.
-- 4  No `GitHun`, vá em `Settings -> SSH Keys` addicionar a chave gerada anteriormente.
+- 4  No `GitHub`, vá em `Settings -> SSH Keys` addicionar a chave gerada anteriormente.
 - 5. No git bash e na pasta onde será a workspace do jogo,
 - 6. Crie um fork do projeto principal `https://github.com/johnnytn/ludumdare`
 - 7. Clonar o seu fork `git clone git@github.com:XX/ludumdare.git`

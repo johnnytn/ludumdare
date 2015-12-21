@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Pizza : MonoBehaviour {
 
-    private Transform bandeja;
+    private Transform bandejaGO;
     public bool naBandeja;
 
     public float dampTime = 0.15f;
@@ -12,12 +12,12 @@ public class Pizza : MonoBehaviour {
     new private AudioSource audio;
     public AudioSource fail;
 
-    private GameObject go;
+    private GameObject vidasGO;
 
     // Use this for initialization
     void Start() {
-        go = GameObject.FindGameObjectWithTag("vidas");
-        bandeja = GameObject.FindGameObjectWithTag("bandeja").transform;
+        vidasGO = GameObject.FindGameObjectWithTag("vidas");
+        bandejaGO = GameObject.FindGameObjectWithTag("bandeja").transform;
         audio = gameObject.GetComponent<AudioSource>();
         fail = GameObject.FindGameObjectWithTag("somFail").GetComponent<AudioSource>();
     }
@@ -25,7 +25,7 @@ public class Pizza : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // TODO : testar para ver se resolveu o bug das pizzas que ficam grudadas no fundo
-        if (this.transform.position.y <= -5) {
+        if (this.transform.position.y < bandejaGO.transform.position.y) {
             alterarEstadoPiza(false);
         }
     }
@@ -42,7 +42,7 @@ public class Pizza : MonoBehaviour {
         }
 
         if (colisor.gameObject.name == "chao") {
-            vida = go.GetComponent<Vidas>();
+            vida = vidasGO.GetComponent<Vidas>();
             if (vida.ExcluirVida()) {
                 fail.Play();
             } else {
@@ -54,7 +54,7 @@ public class Pizza : MonoBehaviour {
     // Altera o estado da pizza e aciona o audio caso colida com a badeja
     private void alterarEstadoPiza(bool naBandeja) {
         this.naBandeja = naBandeja;
-        transform.parent = bandeja;
+        transform.parent = naBandeja ? bandejaGO : null;
         if (naBandeja) {
             audio.Play();
         }
