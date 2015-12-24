@@ -22,6 +22,8 @@ public class PlayerTouchController : MonoBehaviour {
 	public Transform player;
 
 
+
+
 	// Use this for initialization
 	void Start () {
 		lastMovementTime = Time.timeSinceLevelLoad;
@@ -29,15 +31,22 @@ public class PlayerTouchController : MonoBehaviour {
 		bto = gameObject.GetComponent<GUITexture> ();
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
-
-
 	}
 
 
 	// Update is called once per frame
 	void Update () {
+
+		int screenHeight = Screen.height; 
+		int screenWidth = Screen.width;
+
+		if (bto.name == "esquerdo") {
+			bto.pixelInset = new Rect(0, 0, screenWidth /2, screenHeight);
+		} else if (bto.name == "direito") {
+			bto.pixelInset = new Rect(screenWidth /2, 0, screenWidth /2, screenHeight);
+	    }
+
 		if (Time.timeSinceLevelLoad - lastMovementTime >= delayBetweenMovements) {
-			
 
 			foreach (UnityEngine.Touch touch in Input.touches) {
 

@@ -11,6 +11,7 @@ public class pizza : MonoBehaviour {
 	private Vidas vida;
 	new private AudioSource audio;
 	public AudioSource fail;
+	private Animator animator;
 
 	private GameObject go;
 
@@ -20,10 +21,13 @@ public class pizza : MonoBehaviour {
 		bandeja = GameObject.FindGameObjectWithTag("bandeja").transform;
 		audio = gameObject.GetComponent<AudioSource>();
 		fail = GameObject.FindGameObjectWithTag("somFail").GetComponent<AudioSource>();
+		animator = gameObject.GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
+
+
 		if (gameObject.transform.position.y < bandeja.transform.position.y) {
 			Debug.Log ("passei a bandeja");
 			naBandeja = false;
@@ -49,18 +53,20 @@ public class pizza : MonoBehaviour {
 				}
 			} else {
 				Debug.Log ("COLIDIU " + colisor.gameObject.name);
-				Destroy (gameObject);
+				animator.SetBool ("splash", true);
+				fail.Play ();
+				Destroy (gameObject, 0.3f);
 			}
 		}
 
 		if (colisor.gameObject.name == "chao") {
-			vida = go.GetComponent<Vidas> ();
+			vida = go.GetComponent<Vidas>  ();
 			if (vida.ExcluirVida ()) {
-
-				fail.Play ();
 			} else {
-				//Application.LoadLevel("GameOver");
+				Application.LoadLevel("GameOver");
 			}
 		}
 	}
+
+
 }

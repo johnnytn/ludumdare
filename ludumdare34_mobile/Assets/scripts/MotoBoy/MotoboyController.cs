@@ -17,6 +17,7 @@ public class MotoboyController : MonoBehaviour {
 
 	public bool isGoing;
 	public bool isDelivering = false;
+	public string direcao;
 
 	// Use this for initialization
 	void Start () {
