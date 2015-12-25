@@ -40,9 +40,11 @@ public class MotoboySpawner : MonoBehaviour {
 		if (currentSpawnPos.x <= respectiveTargetPositions [i]) {
 			controller.speed = motoboySpeed;
 			controller.acelleration = -motoboyAcceleration;
+			controller.direcao = "e";
 		} else {
 			controller.speed = -motoboySpeed;
 			controller.acelleration = +motoboyAcceleration;
+			controller.direcao = "d";
 		}
 
 
